@@ -21,6 +21,8 @@ import org.processmining.models.semantics.petrinet.CTMarking;
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.models.semantics.petrinet.PetrinetSemantics;
 import org.processmining.models.semantics.petrinet.impl.PetrinetSemanticsFactory;
+import org.processmining.slpnminer.models.reachabilitygraph.CoverabilityGraph;
+import org.processmining.slpnminer.models.reachabilitygraph.State;
 
 import java.util.*;
 import java.util.concurrent.CancellationException;
@@ -213,7 +215,7 @@ public class BoundednessAnalyzer {
         /**
          * Third, color all red predecessors of green states yellow.
          */
-        for (org.processmining.slpnminer.models.Transition edge : coverabilityGraph
+        for (org.processmining.slpnminer.models.reachabilitygraph.Transition edge : coverabilityGraph
                 .getEdges()) {
             if (greenStates.contains(edge.getTarget())) {
                 colorBackwards(coverabilityGraph, edge.getSource(), yellowStates, redStates, initialState);
@@ -230,7 +232,7 @@ public class BoundednessAnalyzer {
             sequence.addAll(net.getTransitions());
             sequences.add(sequence);
         } else {
-            for (org.processmining.slpnminer.models.Transition edge : coverabilityGraph
+            for (org.processmining.slpnminer.models.reachabilitygraph.Transition edge : coverabilityGraph
                     .getEdges()) {
                 if (yellowStates.contains(edge.getSource()) && redStates.contains(edge.getTarget())) {
                     MultiSet<PetrinetNode> sequence = new TreeMultiSet<PetrinetNode>();
@@ -250,7 +252,7 @@ public class BoundednessAnalyzer {
             oldCollection.remove(state);
             newCollection.add(state);
             if (((Marking) state.getIdentifier()).compareTo(initialState) != 0) {
-                for (org.processmining.slpnminer.models.Transition edge : graph
+                for (org.processmining.slpnminer.models.reachabilitygraph.Transition edge : graph
                         .getInEdges(state)) {
                     colorBackwards(graph, edge.getSource(), newCollection, oldCollection, initialState);
                 }

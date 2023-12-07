@@ -25,6 +25,7 @@ import org.processmining.models.graphbased.directed.DirectedGraphNode;
 import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
 import org.processmining.plugins.transitionsystem.miner.TSMiner;
 import org.processmining.plugins.transitionsystem.miner.TSMinerInput;
+import org.processmining.slpnminer.models.reachabilitygraph.ReachabilityGraph;
 
 import com.fluxicon.slickerbox.components.NiceIntegerSlider;
 import com.fluxicon.slickerbox.components.SlickerButton;

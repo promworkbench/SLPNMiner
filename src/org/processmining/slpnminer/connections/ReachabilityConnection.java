@@ -1,10 +1,10 @@
 package org.processmining.slpnminer.connections;
 
 import org.processmining.framework.connections.impl.AbstractConnection;
-import org.processmining.slpnminer.models.AcceptStateSet;
-import org.processmining.slpnminer.models.ReachabilityGraph;
-import org.processmining.slpnminer.models.StartStateSet;
 import org.processmining.models.graphbased.directed.DirectedGraphElementWeights;
+import org.processmining.slpnminer.models.reachabilitygraph.AcceptStateSet;
+import org.processmining.slpnminer.models.reachabilitygraph.ReachabilityGraph;
+import org.processmining.slpnminer.models.reachabilitygraph.StartStateSet;
 
 public class ReachabilityConnection extends AbstractConnection {
     public final static String TS = "TS";

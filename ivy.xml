@@ -26,8 +26,8 @@
  		<!-- Third party library downloaded from maven repository. -->
 		<dependency org="org.matheclipse" name="matheclipse-core" rev="3.0.0" transitive="true"/>
 		<dependency org="org.apache.commons" name="commons-math4-legacy" rev="4.0-beta1"/>
-		<dependency org="org.apache.commons" name="commons-math4-legacy-core" rev="4.0-beta1"/>
-    	<!-- dependency conf="lib->default" org="org.reflections" name="reflections" rev="0.9.10" /-->
+		<dependency org="org.apache.commons" name="commons-math4-legacy-core" rev="4.0-beta1"/>	
+		    	<!-- dependency conf="lib->default" org="org.reflections" name="reflections" rev="0.9.10" /-->
     	<!-- Third party library downloaded from ProM library. -->
     	<!-- dependency conf="lib->default" org="prom-libs" name="opencsv" rev="2.4-patched" transitive="false" /--> 
     </dependencies>

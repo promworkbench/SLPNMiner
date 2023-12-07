@@ -2,6 +2,8 @@ package org.processmining.slpnminer.models;
 
 import java.util.Collection;
 import org.processmining.models.graphbased.directed.DirectedGraph;
+import org.processmining.slpnminer.models.reachabilitygraph.State;
+import org.processmining.slpnminer.models.reachabilitygraph.Transition;
 
 public interface TransitionSystem extends DirectedGraph<State, Transition> {
 

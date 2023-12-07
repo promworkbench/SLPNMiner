@@ -1,10 +1,10 @@
 package org.processmining.slpnminer.connections;
 
-import org.processmining.slpnminer.models.AcceptStateSet;
 import org.processmining.models.graphbased.directed.petrinet.PetrinetGraph;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.semantics.Semantics;
 import org.processmining.models.semantics.petrinet.Marking;
+import org.processmining.slpnminer.models.reachabilitygraph.AcceptStateSet;
 
 public class DeadMarkingConnection extends AbstractSemanticConnection {
     public final static String DEADMARKINGS = "Dead Markings";

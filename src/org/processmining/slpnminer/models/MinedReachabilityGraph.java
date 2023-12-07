@@ -16,6 +16,11 @@ import org.processmining.models.graphbased.directed.DirectedGraphElementWeights;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
 import org.processmining.plugins.transitionsystem.miner.TSMinerInput;
+import org.processmining.slpnminer.models.reachabilitygraph.AcceptStateSet;
+import org.processmining.slpnminer.models.reachabilitygraph.ReachabilityGraph;
+import org.processmining.slpnminer.models.reachabilitygraph.StartStateSet;
+import org.processmining.slpnminer.models.reachabilitygraph.State;
+import org.processmining.slpnminer.models.reachabilitygraph.Transition;
 
 public class MinedReachabilityGraph {
 

@@ -5,7 +5,7 @@ import org.processmining.models.graphbased.directed.petrinet.PetrinetGraph;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.semantics.Semantics;
 import org.processmining.models.semantics.petrinet.Marking;
-import org.processmining.slpnminer.models.ReachabilityGraph;
+import org.processmining.slpnminer.models.reachabilitygraph.ReachabilityGraph;
 
 public class StateSpaceConnection extends AbstractSemanticConnection {
 

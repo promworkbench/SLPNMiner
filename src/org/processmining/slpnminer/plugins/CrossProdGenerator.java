@@ -40,14 +40,14 @@ import org.processmining.models.semantics.petrinet.impl.PetrinetSemanticsFactory
 import org.processmining.slpnminer.connections.DeadMarkingConnection;
 import org.processmining.slpnminer.connections.ReachabilityConnection;
 import org.processmining.slpnminer.connections.StateSpaceConnection;
-import org.processmining.slpnminer.help.StrToExp;
-import org.processmining.slpnminer.models.AcceptStateSet;
+import org.processmining.slpnminer.helpers.StrToExp;
 import org.processmining.slpnminer.models.BoundednessAnalyzer;
-import org.processmining.slpnminer.models.CoverabilityGraph;
-import org.processmining.slpnminer.models.CrossProductImpl;
-import org.processmining.slpnminer.models.ReachabilityGraph;
-import org.processmining.slpnminer.models.StartStateSet;
-import org.processmining.slpnminer.models.State;
+import org.processmining.slpnminer.models.reachabilitygraph.AcceptStateSet;
+import org.processmining.slpnminer.models.reachabilitygraph.CoverabilityGraph;
+import org.processmining.slpnminer.models.reachabilitygraph.CrossProductImpl;
+import org.processmining.slpnminer.models.reachabilitygraph.ReachabilityGraph;
+import org.processmining.slpnminer.models.reachabilitygraph.StartStateSet;
+import org.processmining.slpnminer.models.reachabilitygraph.State;
 
 
 @Plugin(name = "Discover reachability graph",
@@ -145,7 +145,7 @@ public class CrossProdGenerator {
                 ts.addState(tsm);
                 mapping.put(m, tsm);
             }
-            for (org.processmining.slpnminer.models.Transition e : coverabilityGraph
+            for (org.processmining.slpnminer.models.reachabilitygraph.Transition e : coverabilityGraph
                     .getEdges()) {
                 Marking source = mapping.get(e.getSource().getIdentifier());
                 Marking target = mapping.get(e.getTarget().getIdentifier());
@@ -189,7 +189,7 @@ public class CrossProdGenerator {
         HashMap<String, String> tmap = new HashMap<>();
 
         
-        for(org.processmining.slpnminer.models.Transition t: ts.getEdges()){
+        for(org.processmining.slpnminer.models.reachabilitygraph.Transition t: ts.getEdges()){
             tm.put(t.getIdentifier(), "t" + transIdx);
             tmap.put(t.getLabel(), "t" + transIdx);
             transIdx ++;
@@ -309,12 +309,12 @@ public class CrossProdGenerator {
 		for(State state: ts.getNodes()) {
 			// for each outgoing edges, get the probability
 			String result = "(";
-			for(org.processmining.slpnminer.models.Transition t: ts.getOutEdges(state)) {
+			for(org.processmining.slpnminer.models.reachabilitygraph.Transition t: ts.getOutEdges(state)) {
 				result = result.concat(tm.get(t.getIdentifier())+"+");
 			}
 			result = result.substring(0, result.length()-1);
 			result = result.concat(")");
-			for(org.processmining.slpnminer.models.Transition t: ts.getOutEdges(state)) {
+			for(org.processmining.slpnminer.models.reachabilitygraph.Transition t: ts.getOutEdges(state)) {
 				if(tProbMap.containsKey(tm.get(t.getIdentifier()))) {
 					tProbMap.get(tm.get(t.getIdentifier())).put(state.getLabel(), tm.get(t.getIdentifier())+"/"+result);
 					
@@ -390,7 +390,7 @@ public class CrossProdGenerator {
                 ts.addState(tsm);
                 mapping.put(m, tsm);
             }
-            for (org.processmining.slpnminer.models.Transition e : coverabilityGraph.getEdges()) {
+            for (org.processmining.slpnminer.models.reachabilitygraph.Transition e : coverabilityGraph.getEdges()) {
                 Marking source = mapping.get(e.getSource().getIdentifier());
                 Marking target = mapping.get(e.getTarget().getIdentifier());
                 ts.addTransition(source, target, e.getIdentifier(), e.getVisibility());

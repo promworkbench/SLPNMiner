@@ -41,6 +41,8 @@ import nl.tue.astar.AStarException;
 
 public class AlignmentEstimator implements LogSourcedWeightEstimator {
 
+	org.processmining.slpnminer.models.StochasticNetImpl result = new org.processmining.slpnminer.models.StochasticNetImpl("target net");
+
 	private static Logger LOGGER = LogManager.getLogger();
 	
 	@Override
@@ -166,7 +168,6 @@ public class AlignmentEstimator implements LogSourcedWeightEstimator {
 	}
 
 	private StochasticNet copyNet(AcceptingPetriNet inputNet, TObjectIntMap<Transition> transition2occurrence) {
-		StochasticNet result = new StochasticNetImpl(inputNet.getNet().getLabel());
 		result.setExecutionPolicy(ExecutionPolicy.RACE_ENABLING_MEMORY);
 		result.setTimeUnit(TimeUnit.HOURS);
 		Map<PetrinetNode, PetrinetNode> input2result = new THashMap<>();
@@ -192,6 +193,12 @@ public class AlignmentEstimator implements LogSourcedWeightEstimator {
 				result.addArc((Transition) resultSource, (Place) resultTarget);
 			}
 		}
+		return result;
+	}
+
+	@Override
+	public org.processmining.slpnminer.models.StochasticNetImpl getResult() {
+		// TODO Auto-generated method stub
 		return result;
 	}
 
