@@ -1,3 +1,6 @@
+We re-implement this Java plugin in Python with a better open-source non-commercial optimizer, which provides better results than this implementation.  If possible, use the following implementation:
+https://github.com/brucelit/slpn-miner/tree/main
+
 # SLPNMiner
 
 SLPNMiner is a ProM package for the discovery of Stochastic Labelled Petri net, which provides plugin-ins for stochastic process discovery. The input are an event log and a Petri net model, and the output is a stochastic labelled petri net. The two current implemented plugins adopt the techniques introduced in the following to assist weight estimation. 
